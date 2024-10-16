@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Card</title>
+    <style>
+        /* Gaya untuk kartu biodata */
+        .card {
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            padding: 20px;
+            width: 350px;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .card h2 {
+            color: #4CAF50;
+        }
+
+        .card p {
+            margin: 5px 0;
+        }
+
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 10px 10px 0 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+        }
+
+        .details {
+            margin-top: 10px;
+        }
+
+        .details p {
+            font-size: 14px;
+        }
+
+        /* Tombol Tampilkan */
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Input Style */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="header">
+        <h1>I'm <span id="nameOutput">John Doe</span></h1>
+        <p>Biodata</p>
+    </div>
+    <div class="details">
+        <p><strong>Age:</strong> <span id="ageOutput">25</span></p>
+        <p><strong>Address:</strong> <span id="addressOutput">1234 Street, W3 Island</span></p>
+        <p><strong>Email:</strong> <span id="emailOutput">contact@domain.com</span></p>
+        <p><strong>Phone:</strong> <span id="phoneOutput">+0123 456 789</span></p>
+    </div>
+</div>
+
+<h3>Masukkan Biodata Anda</h3>
+<label for="name">Nama:</label>
+<input type="text" id="name" placeholder="Masukkan Nama">
+
+<label for="age">Umur:</label>
+<input type="text" id="age" placeholder="Masukkan Umur">
+
+<label for="address">Alamat:</label>
+<input type="text" id="address" placeholder="Masukkan Alamat">
+
+<label for="email">Email:</label>
+<input type="text" id="email" placeholder="Masukkan Email">
+
+<label for="phone">Telepon:</label>
+<input type="text" id="phone" placeholder="Masukkan Telepon">
+
+<button onclick="showBiodata()">Tampilkan</button>
+
+<script>
+    function showBiodata() {
+        // Ambil nilai input dan tampilkan pada bagian kartu biodata
+        document.getElementById("nameOutput").innerText = document.getElementById("name").value || "John Doe";
+        document.getElementById("ageOutput").innerText = document.getElementById("age").value || "25";
+        document.getElementById("addressOutput").innerText = document.getElementById("address").value || "1234 Street, W3 Island";
+        document.getElementById("emailOutput").innerText = document.getElementById("email").value || "contact@domain.com";
+        document.getElementById("phoneOutput").innerText = document.getElementById("phone").value || "+0123 456 789";
+    }
+</script>
+
+</body>
+</html>

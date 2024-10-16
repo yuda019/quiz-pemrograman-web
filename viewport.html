@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nilai Habis Dibagi Ganjil</title>
+    <script>
+        function showValues() {
+            // Mengambil input batas atas dan batas bawah
+            let lowerBound = parseInt(document.getElementById("lowerBound").value);
+            let upperBound = parseInt(document.getElementById("upperBound").value);
+            let result = "";
+
+            // Validasi input untuk memastikan input adalah angka valid
+            if (isNaN(lowerBound) || isNaN(upperBound)) {
+                document.getElementById("result").innerHTML = "Masukkan angka yang valid.";
+                return;
+            }
+
+            if (lowerBound > upperBound) {
+                document.getElementById("result").innerHTML = "Batas bawah tidak boleh lebih besar dari batas atas.";
+                return;
+            }
+
+            // Loop melalui setiap angka di antara batas bawah dan batas atas
+            for (let i = lowerBound; i <= upperBound; i++) {
+                let divisibleByOdd = false; // Untuk mengecek apakah i habis dibagi bilangan ganjil
+                for (let j = 1; j <= i; j += 2) { // hanya periksa bilangan ganjil
+                    if (i % j === 0) {
+                        divisibleByOdd = true;
+                        result += "Nilai " + i + " habis dibagi dengan " + j + "<br>";
+                    }
+                }
+                if (!divisibleByOdd) {
+                    result += "Tidak ada bilangan ganjil yang membagi " + i + "<br>";
+                }
+            }
+
+            // Menampilkan hasil di div dengan id 'result'
+            document.getElementById("result").innerHTML = result;
+        }
+    </script>
+</head>
+<body>
+    <h2>Nilai Habis Dibagi dengan Bilangan Ganjil</h2>
+
+    <label for="lowerBound">Batas Bawah:</label>
+    <input type="number" id="lowerBound" name="lowerBound" placeholder="Masukkan batas bawah">
+    <br><br>
+
+    <label for="upperBound">Batas Atas:</label>
+    <input type="number" id="upperBound" name="upperBound" placeholder="Masukkan batas atas">
+    <br><br>
+
+    <button onclick="showValues()">Show</button>
+
+    <h3>Hasil:</h3>
+    <div id="result"></div>
+</body>
+</html>
